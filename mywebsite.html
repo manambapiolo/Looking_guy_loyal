@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ngita kag loyal nga Tao</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #4267B2, #052750);
+            color: white;
+        }
+        /* SEARCH BOX */
+        
+        .search-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        input[type="text"] {
+            padding: 10px;
+            width: 250px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            background: white;
+            color: #4267B2;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        /* VIDEO PAGE */
+        
+        .video-page {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #111;
+        }
+        
+        .video-container {
+            position: relative;
+            width: 360px;
+            height: 640px;
+            background: #000;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+        
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .caption {
+            position: absolute;
+            bottom: 20px;
+            left: 10px;
+            color: white;
+            font-size: 18px;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SEARCH SECTION -->
+    <div class="search-box" id="searchSection">
+        <h2>Ngita kag loyal nga Tao ?</h2>
+        <input type="text" id="searchInput" placeholder="Choose 1 to 10...">
+        <button onclick="showVideo()">Search</button>
+    </div>
+
+    <!-- VIDEO SECTION -->
+    <div class="video-page" id="videoSection">
+        <div class="video-container">
+            <video controls autoplay loop>
+            <source src="Short.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+            <div class="caption">My Short Video – Watch Now!</div>
+        </div>
+    </div>
+
+    <script>
+        function showVideo() {
+            const value = document.getElementById("searchInput").value;
+            if (value.trim() !== "") {
+                document.getElementById("searchSection").style.display = "none";
+                document.getElementById("videoSection").style.display = "flex";
+            } else {
+                alert("Please type something first!");
+            }
+        }
+    </script>
+
+</body>
+
+</html>
